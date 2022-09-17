@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 var min, max, total int
 
@@ -23,8 +25,8 @@ func pow(i, j int) int {
 	return pow(i, floor) * pow(i, ceiling)
 }
 
-// convert an array of integers into it's integer representation
-func array_to_num(a []int) int {
+// convert an array of integers to it's integer representation
+func arrayToNum(a []int) int {
 	n := len(a)
 	res := 0
 	for i := 0; i < n; i++ {
@@ -35,8 +37,8 @@ func array_to_num(a []int) int {
 }
 
 // check if the proposed solution is feasible by checking if it's digits sum
-// is what we're looking for
-func is_feasible(array []int, sum int) bool {
+// is equal to sum
+func isFeasible(array []int, sum int) bool {
 	sum_check := 0
 	// check sum
 	for i := 0; i < len(array); i++ {
@@ -52,17 +54,12 @@ func is_feasible(array []int, sum int) bool {
 // use backtracking to check and generate number sequences
 // every iteration we choose
 func FindAllBacktracking(array []int, i, size, sum int) {
-	// if we didn't add any number to our array yet, consider inserting the number one
-	first_num := 1
-	if i > 0 { // or we insert the past inserted value
-		first_num = array[i-1]
-	}
 	// if we inserted the desired number of digits to our array
 	if i == size {
 		// check if it is feasible and update our values
-		if is_feasible(array, sum) {
+		if isFeasible(array, sum) {
 			total++
-			aux := array_to_num(array)
+			aux := arrayToNum(array)
 			if aux < min {
 				min = aux
 			}
@@ -72,6 +69,11 @@ func FindAllBacktracking(array []int, i, size, sum int) {
 		}
 		// and we stop creating more nodes
 		return
+	}
+	// if we didn't add any number to our array yet, consider inserting the number one
+	first_num := 1
+	if i > 0 { // or we insert the same last inserted digit
+		first_num = array[i-1]
 	}
 	// if we still have digits to insert to our array
 	for j := first_num; j < 10; j++ {
@@ -84,11 +86,11 @@ func FindAllBacktracking(array []int, i, size, sum int) {
 }
 
 func FindAll(sum int, count int) []int {
-	var teste []int = make([]int, count)
+	var empty_slice []int = make([]int, count)
 	max = 0
-	min = 2147483647 // max int val
+	min = 9223372036854775807 // max int val
 	total = 0
-	FindAllBacktracking(teste, 0, count, sum)
+	FindAllBacktracking(empty_slice, 0, count, sum)
 
 	if total == 0 {
 		return nil
@@ -99,7 +101,6 @@ func FindAll(sum int, count int) []int {
 }
 
 func main() {
-
-	fmt.Println(FindAll(35, 6))
+	fmt.Println(FindAll(65, 13))
 
 }
