@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 
+// This shouldn't be a 4 kuy kata... 
 char *add(const char *a, const char *b) {
 
     //  <----  hajime!
