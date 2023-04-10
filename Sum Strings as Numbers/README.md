@@ -11,3 +11,5 @@ I have removed the use of BigInteger and BigDecimal in java
 Python: your solution need to work with huge numbers (about a milion digits), converting to int will not work.
 
 [Original](https://www.codewars.com/kata/5324945e2ece5e1f32000370/c)
+
+4 kyu

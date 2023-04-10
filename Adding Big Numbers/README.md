@@ -13,3 +13,5 @@ Notes
 - The numbers are positives
 
 [Original](https://www.codewars.com/kata/525f4206b73515bffb000b21/c)
+
+4 kyu

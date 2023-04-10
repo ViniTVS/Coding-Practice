@@ -30,3 +30,5 @@ find_all(84, 4)  =>  []
 ```
 
 original: https://www.codewars.com/kata/5877e7d568909e5ff90017e6
+
+4 kyu
