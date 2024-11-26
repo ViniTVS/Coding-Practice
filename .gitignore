@@ -1,2 +1,6 @@
 .vscode/
-**/a.out
+**/*.out
+**/.DS_Store
+**/.idea
+**/__pycache__
+**/.vscode
